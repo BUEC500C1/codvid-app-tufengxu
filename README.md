@@ -1,2 +1,2 @@
 # Homework 7 
-# COVID-19 App
+## COVID-19 App

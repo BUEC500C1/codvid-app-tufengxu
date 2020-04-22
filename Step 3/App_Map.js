@@ -12,7 +12,9 @@ class App extends React.Component {
         showsUserLocation
         initialRegion={{
         latitude: 42.3505,
-        longitude: -71.1054
+        longitude: -71.1054,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
         }}
       />
       

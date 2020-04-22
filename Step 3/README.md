@@ -1,2 +1,2 @@
 ## Simple example
-<img src="result.png">
+<img src="res.png">

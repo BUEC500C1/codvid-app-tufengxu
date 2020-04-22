@@ -1,1 +1,2 @@
-Step 3
+## Simple example
+<img src="result.jpeg">

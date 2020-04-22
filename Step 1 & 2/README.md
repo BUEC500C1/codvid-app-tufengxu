@@ -1,2 +1,3 @@
-Simple example
-<img src="HelloWorld.png">
+## Simple example
+
+  <img src="HelloWorld.png">

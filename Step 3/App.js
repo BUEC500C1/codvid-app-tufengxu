@@ -14,13 +14,18 @@ class App extends React.Component {
   } 
 
   componentDidMount() {
-    fetch('https://api.covid19api.com/summary')
+    fetch('https://api.covid19api.com/total/country/united-states', {method: 'GET'})
       .then((response) => response.json())
-      .then(responseJson => {
+      .then(json => {
         this.setState({
-          TotalConfirmed: responseJson['Countries'][235]['TotalConfirmed'],
-          TotalDeaths: responseJson['Countries'][235]['TotalDeaths'],
-          Date: responseJson['Countries'][235]['Date'],
+          
+          TotalConfirmed: json[json.length-1]['Confirmed'],
+          TotalRecovered: json[json.length-1]['Recovered'],
+          TotalDeaths: json[json.length-1]['Deaths'],
+          LatestConfirned: parseInt(json[json.length-1]['Confirmed']) - parseInt(json[json.length-2]['Confirmed']),
+          LatestRecovered: parseInt(json[json.length-1]['Recovered']) - parseInt(json[json.length-2]['Recovered']),
+          LatestDeaths: parseInt(json[json.length-1]['Deaths']) - parseInt(json[json.length-2]['Deaths']),
+          Date: json[json.length-1]['Date'],
         },
         function(){}
       );
@@ -34,10 +39,18 @@ class App extends React.Component {
   render(){
     return(
       <View style={style.container}>
-        <Text style = {style.title}>   Country: United States</Text>
-        <Text style = {style.text}> Total Confirmed Cases: {this.state.TotalConfirmed}</Text>
-        <Text style = {style.text}> Total Death Cases: {this.state.TotalDeaths}</Text>
-        <Text style = {style.text}> Date: {this.state.Date}</Text>
+        <Text style = {style.title}> United States COVID-19 </Text>
+        <Text style = {style.datetext}> Date: {this.state.Date}</Text>
+        <Text style = {style.text1}> Total Cases </Text>
+        <Text style = {style.text}> Confirmed: {this.state.TotalConfirmed}</Text>
+        <Text style = {style.text}> Death: {this.state.TotalDeaths}</Text>
+        <Text style = {style.text}> Recovered: {this.state.TotalRecovered}</Text>
+        <Text style = {style.text1}> Latest Cases </Text>
+        <Text style = {style.text}> Confirmed: {this.state.LatestConfirned}</Text>
+        <Text style = {style.text}> Death: {this.state.LatestDeaths}</Text>
+        <Text style = {style.text}> Recovered: {this.state.LatestRecovered}</Text>
+        
+        
         </View>
     )
   }
@@ -53,16 +66,33 @@ const style = StyleSheet.create({
 
   title:{
     marginTop: 20,
-    fontSize: 20,
-    
-
+    fontSize: 25,
+    textAlign: "center",
   },
+
   text: {
-    color: 'black',
-    marginTop: 20,
+    color: 'gray',
+    // marginTop: 5,
+    marginLeft: 25,
     padding: 10,
+    fontSize: 15,
+    backgroundColor: '#FFFFFF',
+  },
+
+  text1: {
+    color: 'black',
+    padding: 10,
+    marginTop: 20,
+    marginLeft: 5,
     fontSize: 20,
     backgroundColor: '#FFFFFF',
+  },
+
+  datetext: {
+    color: 'gray',
+    marginTop: 10,
+    fontSize: 10,
+    textAlign: "center",
   },
   
 });

@@ -1,20 +1,20 @@
 # Homework 7 -- COVID-19 App
 ## Tasks
 <a name="Step 1"/>
-#### Step 1:  Setup your REACT Native Environment
+### Step 1:  Setup your REACT Native Environment
 
 <a name="Step 2"/>
-#### Step 2:  Go through REACT native Tutorial
+### Step 2:  Go through REACT native Tutorial
 * Build and run Hello applications on phone.
 
 <a name="Step 3"/>
-#### Step 3:  Develop use case to display a map.
+### Step 3:  Develop use case to display a map.
 
 <a name="Step 4"/>
-#### Step 4:  Exercise the COVID-19 API (Documentation using postman) and display the data in application as text.
+### Step 4:  Exercise the COVID-19 API (Documentation using postman) and display the data in application as text.
 
 <a name="Step 5"/>
-#### Step 5:  Overlay the data on the maps.
+### Step 5:  Overlay the data on the maps.
 1. Home Page
 * Home page displays the COVID-19 global summary
 <img src="./Step 5/Global.png">
